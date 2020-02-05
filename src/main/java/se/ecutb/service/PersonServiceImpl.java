@@ -79,6 +79,12 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public boolean deletePerson(int personId) throws IllegalArgumentException {
+        try {
+            personRepository.delete(personId);
+        } catch (IllegalArgumentException){
+            System.out.println("Error!");
+        }
+
         return false;
     }
 }
